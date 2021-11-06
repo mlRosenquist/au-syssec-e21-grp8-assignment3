@@ -1,0 +1,33 @@
+\documentclass[12pt,twocolumn]{article}
+\usepackage{graphicx}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\usepackage{listings}[multicols=2]
+\addbibresource[]{misc/references.bib}
+% URL trimmer 
+\toks0\expandafter{\biburlsetup}
+\edef\biburlsetup{\the\toks0 \Urlmuskip =0mu\relax}
+
+
+\begin{document}
+
+\input{contents/frontpage.tex}
+\onecolumn
+\tableofcontents
+\newpage
+
+\twocolumn
+\section{Introduction}
+\input{contents/introduction.tex}
+\section{Setup}
+\input{contents/setup.tex}
+\section{Exploit}
+\input{contents/exploit.tex}
+\section{Discussion}
+\input{contents/discussion.tex}
+\onecolumn
+\printbibliography
+\end{document}
