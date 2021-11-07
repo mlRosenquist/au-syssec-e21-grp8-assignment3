@@ -1,5 +1,8 @@
-Link introduction to results:
-- how serious is this
-- when was it fixed
-- long time flaw
-- combining with other attacks
+Looking at the threat model of this vulnerability. The adversaries are essentially the crooks. They are interested in the infrastructure of the server and controlling the behavior. If they succeed in mounting the attack and establish a reverse shell, they can tamper with almost any security property of the system. One limitation is that the user executing the code on the server is the one hosting the apache server. If the server is somewhat correctly configured, this will be a user with limited rights. But because the attacker is inside he will be able to mount other attacks. Worst case scenario would be becoming root. Then the attacker can do anything.
+
+The vulnerability has existed in bash since its release. It was then announced to the public in 2014 when a patch was available for release\cite{shellshock}. Attackers was fast in the days after and abusing servers not patched yet. This shows the severity of the vulnerability. Plenty of systems was compromised and it is scary to imagine how long this has been exploited. 
+
+There are ways of protecting your servers against such attacks. The obvious one is keeping your running software up to date. You would not think that a program such as bash could make your server vulnerable as this is just execution on your server. But when an attacker has a way into controlling your shell scripts it's a different story. 
+
+The usage of msfconsole shows how easy it is to mount known attacks. Therefore as the manager of a server it is important to know existing exploits. If you do not protect yourself against these, your server can be abused in the matter of minutes. 
+
